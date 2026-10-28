@@ -1,88 +1,117 @@
-/* Shared styles for GreenNewDealPlan.com. Loaded after Bootstrap 4.3.1. */
+/* Article (subpage) styles for GreenNewDealPlan.com. Loaded after base.css. */
 
-html {
-    font-size: 1.2rem;
-}
+/* Sector accent for the title, set by the class on .article-band */
+.article-band.energy { --c: var(--energy); }
+.article-band.buildings { --c: var(--buildings); }
+.article-band.transportation { --c: var(--transportation); }
+.article-band.environment { --c: var(--environment); }
+.article-band.manufacturing { --c: var(--manufacturing); }
+.article-band.education { --c: var(--education); }
+.article-band.howtopay { --c: var(--pay); }
 
-/* ---- Colors (from the original home page) ---- */
-.pageTitleColor {
-    background-color: rgba(51, 234, 51, .266);
-}
-.headerTextColor {
-    background-color: rgba(51, 234, 51, .15);
-}
-.energy {
-    background-color: rgba(255, 255, 0, .3);
-}
-.buildings {
-    background-color: rgba(51, 234, 51, .15);
-}
-.transportation {
-    background-color: rgba(0, 255, 255, .4);
-}
-.environment {
-    background-color: rgba(76, 112, 189, 0.4);
-}
-.manufacturing {
-    background-color: rgba(243, 113, 113, 0.4);
-}
-.education {
-    background-color: rgba(234, 140, 51, .4);
-}
-.total {
-    background-color: #33EA33;
-}
-.howtopay {
-    background-color: rgb(177, 225, 226);
-}
-
-/* ---- Subpage layout ---- */
-.site-title a {
-    color: inherit;
-}
-.site-title a:hover {
+/* No-JavaScript fallback link, replaced by js/site.js */
+#site-header > a {
+    display: block;
+    padding: .75rem 1rem;
+    background: var(--brand);
+    color: var(--brand-text);
+    font-weight: 800;
     text-decoration: none;
 }
 
-.crumbs {
-    font-size: .85rem;
-    margin: .5rem 0;
+/* Keep the footer at the bottom of short pages */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-.crumbs .sep {
-    margin: 0 .4rem;
-    color: #6c757d;
+body > main {
+    flex: 1;
+    width: 100%;
 }
 
 .article {
-    max-width: 46rem;
-    margin: 0 auto 1.5rem;
-    line-height: 1.6;
-}
-.article-band {
-    padding: .75rem 1rem;
-    margin-bottom: 1.25rem;
-}
-.article-band h1 {
-    font-size: 1.75rem;
-    margin: 0;
-}
-.article h2 {
-    font-size: 1.4rem;
-    margin-top: 1.75rem;
-}
-.article pre {
-    font-size: .85rem;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    padding: .5rem .75rem;
-    display: inline-block;
-}
-.article a {
-    overflow-wrap: anywhere;
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 2.5rem 0 3rem;
 }
 
-.site-footer {
-    padding: .5rem 1rem;
-    margin-bottom: 10px;
-    font-size: .9rem;
+/* ---- Title block ---- */
+.article-band {
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+}
+.article-band::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 4.5rem;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--c, var(--brand-accent));
+}
+.article-band h1 {
+    font-size: clamp(1.9rem, 5vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -.025em;
+    font-weight: 800;
+    margin: 0;
+}
+
+.crumbs {
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin: 0 0 .6rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .25rem .5rem;
+}
+.crumbs a {
+    color: var(--muted);
+    text-decoration: none;
+}
+.crumbs a:hover { color: var(--link); }
+.crumbs .sep { color: var(--muted); opacity: .6; }
+.crumbs a:last-child {
+    color: var(--c, var(--link));
+    filter: brightness(.85);
+}
+@media (prefers-color-scheme: dark) {
+    .crumbs a:last-child { filter: brightness(1.15); }
+}
+
+/* ---- Body text ---- */
+.article p,
+.article ul,
+.article ol { margin: 0 0 1.15rem; }
+.article li { margin-bottom: .35rem; }
+.article h2 {
+    font-size: 1.45rem;
+    letter-spacing: -.015em;
+    line-height: 1.25;
+    margin: 2.25rem 0 .75rem;
+}
+.article a { overflow-wrap: anywhere; }
+.article strong { font-weight: 700; }
+.article pre {
+    font-size: .85rem;
+    line-height: 1.5;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: .75rem 1rem;
+    margin: 0 0 1.15rem;
+    overflow-x: auto;
+    width: fit-content;
+    max-width: 100%;
+}
+
+@media (max-width: 760px) {
+    .article { padding-top: 1.75rem; }
 }
