@@ -20,7 +20,9 @@ js/site.js                 subpages only: renders top bar, breadcrumb and footer
 .nojekyll                  tells GitHub Pages to serve files as-is
 ```
 
-Not yet converted (still Drupal-era markup with broken root-relative `/...` links, not linked from the GND pages): `jonrynn.html`, `jonathanmfeldman.html`, `manufacturinggreenprosperity.html`, `melman/*.html`. When converting them, reuse `base.css`, `site.css` and `site.js`.
+`jonrynn.html` redirects to the bibliography, which now lives in its own repo: https://github.com/jonrynn/jonrynn (live at https://jonrynn.github.io/jonrynn/).
+
+Not yet converted (still Drupal-era markup with broken root-relative `/...` links, not linked from the GND pages): `jonathanmfeldman.html`, `manufacturinggreenprosperity.html`, `melman/*.html`. When converting them, reuse `base.css`, `site.css` and `site.js`.
 
 ## Subpage anatomy
 
